@@ -241,4 +241,4 @@ index = []
 for i in range(0,48):
   index.append(i+1)
 st.write(index)
-data.cell(row=1).value
+data(row=1).value
