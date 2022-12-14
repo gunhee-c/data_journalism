@@ -29,7 +29,7 @@ st.dataframe(data)
 gold_columns = []
 for i in range(len(data.columns)):
   gold_columns.append(data.columns[i])
-gold_index = data[data.columns[0]]
+gold_index = data[data.columns[0]].transpose()
 st.write(gold_columns)
 st.write(gold_index[0])
 #for i in range():
