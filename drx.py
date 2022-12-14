@@ -24,6 +24,7 @@ st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 gold_data = data.transpose()
+gold_data = gold_data.drop(gold_data.index[0])
 st.dataframe(gold_data)
 
 # install these
