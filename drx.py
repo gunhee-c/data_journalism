@@ -23,7 +23,10 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-data.index = data.Games
-data = data.drop(["Games"], axis=1)
-df_1 = pd.DataFrame(data)
-st.line_chart(df_1)
+option = st.selectbox(
+  'Select Games',
+  ([data['Games']))
+
+gold_data = data.loc[(data['Games'] == option)]
+gold_index = gold_data.index.tolist()
+st.line_chart(gold_data.loc[gold_index[0]], use_container_width=True)
