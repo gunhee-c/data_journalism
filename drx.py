@@ -20,6 +20,11 @@ st.write("")
 st.write("")
 st.write("먼저,")
 
+st.subheader("골드")
+data = pd.read_excel("Gold.xlsx")
+data = data.fillna("")
+st.dataframe(data)
+
 # install these
 
 from bs4 import BeautifulSoup
@@ -190,10 +195,3 @@ st.subheader("their DMG distribution")
 st.write(worlds2022[3])
 st.subheader("their Gold distribution")
 st.write(worlds2022[4])
-
-st.subheader("골드")
-data = pd.read_excel("Gold.xlsx")
-data = data.fillna("")
-data.index = data.Time
-data = data.drop(["Time"], axis=1)
-st.dataframe(data)
