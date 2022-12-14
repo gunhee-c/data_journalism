@@ -222,12 +222,6 @@ winner_team = ['DRX', 'EDG', 'DWG','FPX', 'IG', 'DRX_total', 'DRX_from_Korea']
 
 winner_time = [43068, 41244, 31841, 33768, 32490, 52063, 71803]
 colors = ['#62F2EC', '#C9D7DB', '#F05627', '#636363', '#3E95D6', '#B1C7F2','#B1C7F2']
-def sortedpair(lst1, lst2):
-  #print(lst2)
-  lst2sort = lst2.copy()
-  Z = [x for _,x in sorted(zip(lst2,lst1))]
-  lst2sort.sort()
-  return [Z,lst2sort]
 
 sortme = sortedpair(winner_team, winner_time)
 print(sortme[0])
