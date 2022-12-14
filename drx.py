@@ -26,7 +26,7 @@ data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
 #st.dataframe(data)
-line_fig = px.line(data[data.columns[0]], x='Minutes', y='Gold')
+line_fig = px.line(data, x='Minutes', y='Gold')
 st.plotly_chart(line_fig)
 
 # install these
