@@ -29,9 +29,11 @@ st.dataframe(data)
 gold_columns = []
 for i in range(len(data.columns)):
   gold_columns.append(data.columns[i])
-option = st.selectbox('Games', gold_columns)  
-gold_data = pd.DataFrame(np.random.randn(20,21), columns=gold_columns)
-st.line_chart(gold_data)
+option = st.selectbox('Games', gold_columns)
+gold_data = df.loc[(gold_columns == option)]
+gold_index = gold_data.index.tolist()
+#gold_data = pd.DataFrame(np.random.randn(20,21), columns=gold_columns)
+st.line_chart(gold_data.loc[gold_index[0]], use_container_width = True)
 
 # install these
 
