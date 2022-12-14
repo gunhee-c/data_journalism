@@ -26,10 +26,10 @@ data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
 st.dataframe(data)
-#columns_gold = []
-#for i in range(len(data.columns)):
-  #columns_gold += data.columns[i]
-st.write(data.columns[0])
+columns_gold = []
+for i in range(len(data.columns)):
+  columns_gold.append(data.columns[i])
+st.write(columns_gold)
 #gold_data = pd.DataFrame(columns=data.columns[0])
 #st.line_chart(gold_data)
 
