@@ -5,3 +5,4 @@
  IPython
  pandas-datareader==0.10.0
  urllib3
+ urlopen
