@@ -22,4 +22,4 @@ st.write("먼저,")
 
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
-st.line_chart(data)
+st.write(data)
