@@ -26,9 +26,8 @@ data = data.fillna("")
 gold_data = data.transpose()
 gold_data.rename(columns=gold_data.iloc[0], inplace=True)
 gold_data = gold_data.drop(gold_data.index[0])
-vs_RGE = [len(range(-20000,20000))]
 index = gold_data.index
-df1 = pd.DataFrame({'vs RGE': vs_RGE}, index=index)
+df1 = pd.DataFrame({range(-20000,20000)}, index=index)
 st.line_chart(df1)
 
 # install these
