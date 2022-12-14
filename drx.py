@@ -218,16 +218,21 @@ plt.show()
 
 
 ###
-
 winner_team = ['DRX', 'EDG', 'DWG','FPX', 'IG', 'DRX_total', 'DRX_from_Korea']
 
 winner_time = [43068, 41244, 31841, 33768, 32490, 52063, 71803]
-
+colors = ['#62F2EC', '#C9D7DB', '#F05627', '#636363', '#3E95D6', '#B1C7F2','#B1C7F2']
+def sortedpair(lst1, lst2):
+  #print(lst2)
+  lst2sort = lst2.copy()
+  Z = [x for _,x in sorted(zip(lst2,lst1))]
+  lst2sort.sort()
+  return [Z,lst2sort]
 
 sortme = sortedpair(winner_team, winner_time)
 print(sortme[0])
 print(sortme[1])
-data = {"team": sortme[0], "seconds" : sortme[1]}
+data = {"team": sortme[0], "seconds" : sortme[1], "colorme" : colors}
 
 data = pd.DataFrame(data)
 
@@ -235,7 +240,11 @@ st.write(data)
 st.write(alt.Chart(data).mark_bar().encode(
     x=alt.X('team', sort=None),
     y='seconds',
-    width = 800
-    height = 600)
+    color=alt.Color('colorme', scale=None)
+    ).properties(
+    width=600,
+    height=600
+    
+)
 )
 ###
