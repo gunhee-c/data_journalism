@@ -26,8 +26,7 @@ data = data.fillna("")
 gold_data = data.transpose()
 gold_data.rename(columns=gold_data.iloc[0], inplace=True)
 gold_data = gold_data.drop(gold_data.index[0])
-#st.dataframe(gold_data)
-st.write(gold_data.columns)
+st.dataframe(gold_data)
 
 # install these
 
