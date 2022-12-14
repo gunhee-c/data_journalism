@@ -25,4 +25,5 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Games
 data = data.drop(["Games"], axis=1)
-st.write(data)
+lines = data.index
+st.write(lines)
