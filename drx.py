@@ -54,6 +54,7 @@ st.write("")
 
 st.write("각 대회마다 모든 팀의 정보에 대해 접근할 수 있도록 한 뒤,")
 st.write("3강 메이저 지역으로 분류되는 한국,중국,유럽의 Spring과 Summer 데이터와 5년간의 롤드컵 데이터들을 크롤링하여 데이터프레임의 리스트를 만들었다.")
+st.write("총 11개의 대회, 그리고 대회에 참여한 (중복을 포함하여) 154개 팀의 정보를 수집하였다")
 #데이터프레임 형성
 st.image("https://i.ibb.co/34TF6TF/datatable.png")
 #results
