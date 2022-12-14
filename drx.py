@@ -25,15 +25,17 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
-st.dataframe(data)
+#st.dataframe(data)
+gold_data = pd.DataFrame(columns=data.columns[0])
+st.line_chart(gold_data)
 
 # install these
 
 from bs4 import BeautifulSoup
 from IPython.utils.path import target_update
-from urllib3.request import urlopen 
+from urllib.request import urlopen 
 
-from urllib3.error import URLError, HTTPError
+from urllib.error import URLError, HTTPError
 
 
 #Data Analysis Main Function
