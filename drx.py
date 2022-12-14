@@ -25,5 +25,6 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Games
 data = data.drop(['Games'], axis=1)
-index = data.columns
-st.write(index)
+games = [data.index]
+df1 = pd.DataFrame({'games': games}, index = data.columns)
+st.dataframe(df1)
