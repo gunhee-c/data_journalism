@@ -25,4 +25,5 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(["Time"], axis=1)
-st.line_chart(data)
+RGE1 = data.
+gold_df = pd.DataFrame
