@@ -23,7 +23,7 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-st.dataframe(gold_data)
+st.dataframe(data)
 
 #import pandas_datareader.data as web
 #start = 1
