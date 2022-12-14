@@ -21,9 +21,8 @@ st.write("")
 st.write("먼저,")
 
 st.subheader("골드")
-data = pd.read_excel("Gold.xlsx")
+data = pd.read_excel("Rogue.xlsx")
 data = data.fillna("")
-chart_data = pd.DataFrame(
 #gold_data = data.transpose()
 #st.dataframe(gold_data)
 #gold_data.rename(columns=gold_data.iloc[0], inplace=True)
