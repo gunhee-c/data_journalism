@@ -19,3 +19,6 @@ st.write("")
 st.write("")
 st.write("")
 st.write("먼저,")
+
+st.subheader("골드")
+data = pd.read_excel("Gold.xlsx")
