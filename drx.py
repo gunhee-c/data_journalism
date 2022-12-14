@@ -25,4 +25,4 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Games
 data = data.drop(["Games"], axis=1)
-st.write(data.columns)
+st.line_chart(data)
