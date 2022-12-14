@@ -42,9 +42,17 @@ def data_master(url_tournament):
   
   pickban_url = urlopen(url_pblist)
   pickban_dict = pb_datamaker(pickban_url)
+  #해당 대회 픽밴 경향성 파악
   #print(pickban_dict)
+
+  PB = [];
+  KP = [];
+  DMG = [];
+  GOLD = []
+
+
   for i in range(len(team_links)):
-    print(team_names[i])
+    #print(team_names[i])
     #print(team_links[i]);
     team_url = urlopen(team_links[i])
     team_url2 = urlopen(team_links[i])
@@ -52,15 +60,22 @@ def data_master(url_tournament):
     team_picks_dict = team_picks(team_url)
     #print(team_picks_dict)
     pickban_grade = team_pb_grade(pickban_dict, team_picks_dict)
-    print("pick-ban evaluation: " + str(pickban_grade))   
+    #print("pick-ban evaluation: " + str(pickban_grade))   
     
     balance_data = KPDMGGOLD(team_url2)
-    print("KP: " + str(balance_data[0]))
-    print("DMG%: " + str(balance_data[1]))
-    print("GOLD%: " + str(balance_data[2]))
 
-    print()
-    #Will be replaced in a near future.
+
+    #print("KP: " + str(balance_data[0]))
+    #print("DMG%: " + str(balance_data[1]))
+    #print("GOLD%: " + str(balance_data[2]))
+    #print()
+
+    PB.append(pickban_grade)
+    KP.append(balance_data[0])
+    DMG.append(balance_data[1])
+    GOLD.append(balance_data[2])
+    #print(PB)
+  return [team_names, PB, KP, DMG, GOLD]
     
 # find all team links in a certain tournament
 # returns [teamlinks[], teamnames[]]
@@ -164,8 +179,21 @@ def team_picks(url):
 
   return dictout
 
+worlds2022 = data_master("https://gol.gg/tournament/tournament-stats/World%20Championship%202022/")
+st.subheader("list of teams")
+st.write(worlds2022[0])
+st.subheader("their pick-ban score")
+st.write(worlds2022[1])
+st.subheader("their kill participation distribution")
+st.write(worlds2022[2])
+st.subheader("their DMG distribution")
+st.write(worlds2022[3])
+st.subheader("their Gold distribution")
+st.write(worlds2022[4])
+
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-#st.dataframe(data)
-gold_data = data[['Games','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48']].transpose()
+data.index = data.Time
+data = data.drop(["Time"], axis=1)
+st.dataframe(data)
