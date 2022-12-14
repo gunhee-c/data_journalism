@@ -25,14 +25,14 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 st.dataframe(data)
 
-#import pandas_datareader.data as web
-#start = 1
-#end = 48
-#gold_df = web.DataReader('vs RGE Game 1',start,end).reset_index()
-#plt figure(figsize=(20,5))
-#plt.plot(gold_df
-#plt.legend()
-#plt.show()
+import pandas_datareader.data as web
+start = 1
+end = 48
+gold_df = web.DataReader(data,start,end).reset_index()
+plt figure(figsize=(20,5))
+plt.plot(gold_df['Time'], gold_df['vs RGE Game 1'], label = 'vs RGE Game 1')
+plt.legend()
+plt.show()
 
 # install these
 
