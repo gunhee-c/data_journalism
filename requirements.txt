@@ -3,3 +3,4 @@
  openpyxl
  bs4==0.0.1
  IPython
+ pandas-datareader==0.10.0
