@@ -25,5 +25,6 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(["Time"], axis=1)
-RGE1 = data.
-gold_df = pd.DataFrame
+st.dataframe(data)
+#RGE1 = data.
+#gold_df = pd.DataFrame
