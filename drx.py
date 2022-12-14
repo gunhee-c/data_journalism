@@ -23,6 +23,5 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-data.index = data.Games
-data = data.drop(['Games'], axis=1)
+data.index = data.columns.difference(['Games'])
 st.dataframe(data)
