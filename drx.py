@@ -21,34 +21,13 @@ st.write("")
 st.write("먼저,")
 
 st.subheader("골드")
-RGE1 = [0,0,-24,-53,-7,-448,-540,337,-366,-205,150,289,408,15,-20,16,-257,-385,-1027,-1032,-1411,-1373,-2079,-2193,-1922,-1687,-1009,-1200,-2277,-3715,-5561,-4943,-4837,-4941,-4964,-5139,-9363,-9414,"","","","","","","","","",""]
-index = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48']
-df = pd.DataFrame({'vs RGE Game 1': RGE1}, index = index)
-fig1 = px.line(df)
-st.plotly_chart(fig1, index='Minutes', value='Gold')
-
-#data = pd.read_excel("Rogue.xlsx")
-#data = data.fillna("")
-#gold_data = data.transpose()
-#st.dataframe(gold_data)
-#st.line_chart(gold_data)
-#gold_data.rename(columns=gold_data.iloc[0], inplace=True)
-#gold_data = gold_data.drop(gold_data.index[0])
-#st.line_chart(gold_data)
-#gold_columns = []
-#for i in range(len(data.columns)):
-  #gold_columns.append(data.columns[i])
-#gold_index = data[data.columns[0]]
-#st.write(gold_columns)
-#st.write(gold_index.index[5])
-#st.line_chart(gold_index)
-#for i in range():
-  #gold_index[i] = data[
-#option = st.selectbox('Games', gold_columns)
-#gold_data = data.loc[(gold_columns == option)]
-#gold_index = gold_data.index.tolist()
-#gold_data = pd.DataFrame(np.random.randn(20,21), columns=gold_columns)
-#st.line_chart(gold_data.loc[gold_index[0]], use_container_width = True)
+data = pd.read_excel("Gold.xlsx")
+data = data.fillna("")
+data.index = data.Time
+data = data.drop(['Time'], axis=1)
+#st.dataframe(data)
+gold_data = pd.DataFrame(columns=data.columns[0])
+st.line_chart(gold_data)
 
 # install these
 
@@ -208,15 +187,54 @@ def team_picks(url):
       dictout.update({champdata : numdata})
 
   return dictout
+#lst2의 값에 따라 lst1의 값을 sorting함. 오름차순.
+def sortedpair(lst1, lst2):
+  #print(lst2)
+  lst2sort = lst2.copy()
+  Z = [x for _,x in sorted(zip(lst2,lst1))]
+  lst2sort.sort()
+  return [Z,lst2sort]
 
-worlds2022 = data_master("https://gol.gg/tournament/tournament-stats/World%20Championship%202022/")
-st.subheader("list of teams")
-st.write(worlds2022[0])
-st.subheader("their pick-ban score")
-st.write(worlds2022[1])
-st.subheader("their kill participation distribution")
-st.write(worlds2022[2])
-st.subheader("their DMG distribution")
-st.write(worlds2022[3])
-st.subheader("their Gold distribution")
-st.write(worlds2022[4])
+#worlds2022 = data_master("https://gol.gg/tournament/tournament-stats/World%20Championship%202022/")
+#st.subheader("list of teams")
+#st.write(worlds2022[0])
+#st.subheader("their pick-ban score")
+#st.write(worlds2022[1])
+#st.subheader("their kill participation distribution")
+#st.write(worlds2022[2])
+#st.subheader("their DMG distribution")
+#st.write(worlds2022[3])
+#st.subheader("their Gold distribution")
+#st.write(worlds2022[4])
+
+
+
+
+plt.title('Playtime of the Winner',fontsize=20) ## 타이틀 출력
+plt.xlabel('Team',fontsize=15) ## x축 라벨 출력
+plt.ylabel('seconds',fontsize=15) ## y축 라벨 출력
+plt.show()
+
+
+###
+
+winner_team = ['DRX', 'EDG', 'DWG','FPX', 'IG', 'DRX_total', 'DRX_from_Korea']
+
+winner_time = [43068, 41244, 31841, 33768, 32490, 52063, 71803]
+
+
+sortme = sortedpair(winner_team, winner_time)
+print(sortme[0])
+print(sortme[1])
+data = {"team": sortme[0], "seconds" : sortme[1]}
+
+data = pd.DataFrame(data)
+
+st.write(data)
+st.write(alt.Chart(data).mark_bar().encode(
+    x=alt.X('team', sort=None),
+    y='seconds',
+    width = 800
+    height = 600)
+)
+###
