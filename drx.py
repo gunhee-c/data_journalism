@@ -25,5 +25,151 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(["Time"], axis=1)
-DRX1 = data[data.columns[0]]
-st.line_chart(DRX1)
+
+# install these
+!pip install bs4
+
+from bs4 import BeautifulSoup
+from IPython.utils.path import target_update
+from urllib.request import urlopen 
+
+from urllib.error import URLError, HTTPError
+
+
+#Data Analysis Main Function
+def data_master(url_tournament):
+  #search tournament-ranking 
+  url_pblist = url_tournament.replace("stats", "picksandbans")
+  #print(url_pblist)
+  url_teamlist = url_tournament.replace("stats", "ranking")
+
+  teamlist = teams_finder(url_teamlist)
+  team_names = teamlist[1]
+  team_links = teamlist[0]
+  
+  pickban_url = urlopen(url_pblist)
+  pickban_dict = pb_datamaker(pickban_url)
+  #print(pickban_dict)
+  for i in range(len(team_links)):
+    print(team_names[i])
+    #print(team_links[i]);
+    team_url = urlopen(team_links[i])
+    team_url2 = urlopen(team_links[i])
+
+    team_picks_dict = team_picks(team_url)
+    #print(team_picks_dict)
+    pickban_grade = team_pb_grade(pickban_dict, team_picks_dict)
+    print("pick-ban evaluation: " + str(pickban_grade))   
+    
+    balance_data = KPDMGGOLD(team_url2)
+    print("KP: " + str(balance_data[0]))
+    print("DMG%: " + str(balance_data[1]))
+    print("GOLD%: " + str(balance_data[2]))
+
+    print()
+    #Will be replaced in a near future.
+    
+# find all team links in a certain tournament
+# returns [teamlinks[], teamnames[]]
+def teams_finder(url):
+  addme = "https://gol.gg"
+  ans = [[],[]]
+
+  parser = 'html.parser'  # or 'lxml' (preferred) or 'html5lib', if installed
+  resp = urllib.request.urlopen(url)
+  soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'))
+
+  for link in soup.find_all('a', href=True):
+    if 'team-stats' in link['href']:
+      ans[0].append(str(addme + link['href'][2:]))
+      ans[1].append(str(link.get_text()))
+  return ans
+
+# get KP%, DMG%, GOLD% of each teammates
+#return in formate [KP%[], DMG%[], GOLD%[]]
+def KPDMGGOLD(url):
+  soup = BeautifulSoup(url, "html.parser")
+  parseme = soup.find_all('td', class_="text-center")
+  treatme = []
+  for i in range(len(parseme)):
+    if "a href" not in str(parseme[i]):
+      if "%" in str(parseme[i]):
+        treatme.append(parseme[i])
+  treatme.pop(0)
+  KP = [];
+  DMG = [];
+  GOLD = [];
+  for i in range(15):
+    if len(str(treatme[i]))<40:
+      data = re.findall(">.*?<", str(treatme[i]))
+      data[0] = float(data[0][1:-2])
+      KP.append(data[0])
+    else:
+      data = re.findall("x\">.*?</s", str(treatme[i]))
+      data[0] = float(data[0][3:-4])
+      if (i%3 ==1):
+        DMG.append(data[0])
+      else:
+        GOLD.append(data[0])
+  return [KP,DMG,GOLD]
+
+# get tournament pickban dict, team's pick dict
+# returns a float number that shows the team's pick-ban performance
+# result is dependent to total # of games in a tournament
+def team_pb_grade(tournament, team):
+  evaluator = 0;
+  counter  = 0;
+  for key in team:
+    counter += team[key]
+    evaluator += team[key] * math.sqrt(tournament[key])
+  return evaluator/counter
+
+print(team_pb_grade(worlds, drx))
+
+
+#Receive pick-ban data of a tournament in a form of dictionary
+#score = sum of picks and bans from all lines
+def pb_datamaker(url):
+  #url_open = urlopen(url)
+  #soup = BeautifulSoup(url_open, "html.parser")
+  soup = BeautifulSoup(url, "html.parser")
+  pb = soup.find_all('td')
+  pickbans = {}
+  pbs = [pb[5], pb[7], pb[9], pb[11], pb[13], pb[15]] 
+  for i in range(len(pbs)):
+    if i == 0:
+      nums = re.findall("\r\n.*?</span>", str(pbs[i]))
+    else:
+      nums = re.findall("</div>.*?</div>", str(pbs[i]))
+    champs = re.findall("title=.*? stats", str(pbs[i]))
+    for j in range(len(champs)):
+      if i == 0:
+        numdata = int(nums[j][9:-7])
+      else: 
+        numdata = int(nums[j][6:-6])
+      champdata = champs[j][7:-6]
+      if champdata in pickbans:
+        pickbans[champdata] += numdata
+      else:
+        pickbans.update({champdata : numdata})
+  return pickbans
+
+#Receive the data of champions picked by a certain team in a tournament
+
+def team_picks(url):
+  #team_url = urlopen(url)
+  #soup = BeautifulSoup(team_url, "html.parser")
+  soup = BeautifulSoup(url, "html.parser")
+  parseme = soup.find_all('span', class_="text-center")
+  dictout = {}
+  for i in range(len(parseme)):
+    num = re.findall("</a><br/>\r\n.*?</span>", str(parseme[i]))
+    champ = re.findall("title=.*? stats", str(parseme[i]))
+    numdata = int(num[0][18:-7])
+    champdata = champ[0][7:-6]
+    if champdata[0] in dictout:
+      dictout[champdata] += numdata
+    else:
+      dictout.update({champdata : numdata})
+
+  return dictout
