@@ -26,7 +26,7 @@ data = data.fillna("")
 gold_data = data.transpose()
 gold_data.rename(columns=gold_data.iloc[0], inplace=True)
 gold_data = gold_data.drop(gold_data.index[0])
-DRX1 = gold_data[gold_data.columns[0]]
+DRX1 = gold_data[gold_data.columns[0], index = range(-20000,20000)]
 st.line_chart(DRX1)
 
 # install these
