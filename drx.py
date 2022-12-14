@@ -237,3 +237,7 @@ st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data
+index = []
+for i in range(0,48):
+  index.append(string(i))
+st.write(index)
