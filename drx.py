@@ -25,7 +25,7 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 option = st.selectbox(
   'Select Games',
-  ([data['Games']))
+  (data['Games'])
 
 gold_data = data.loc[(data['Games'] == option)]
 gold_index = gold_data.index.tolist()
