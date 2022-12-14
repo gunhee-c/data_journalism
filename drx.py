@@ -240,7 +240,15 @@ T1_2 = [0,0,54,-30,128,197,230,207,236,533,176,-2141,-3032,-2053,-3079,-2626,-18
 index = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48']
 df_rge_1 = pd.DataFrame({'vs RGE Game 1': RGE_1, 'vs T1 Game 2': T1_2}, index=index)
 df_rge_1
-st.line_chart(df_rge_1)
+line_chart = alt.Chart(df_rge_1).mark_line(interpolate='basis').encode(
+    alt.X('x', title='Minutes'),
+    alt.Y('y', title='Golds'),
+    color='category:N'
+).properties(
+    title='Temporal Change of Gold'
+)
+
+st.altair_chart(line_chart)
 #df_t1_2 = pd.DataFrame({'vs T1 Game 2': T1_2}, index=index)
 #fig_1 = px.line(df_rge_1)
 #fig_2 = px.line(df_t1_2)
