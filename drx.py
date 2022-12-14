@@ -24,7 +24,7 @@ st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
-data = data.drop(['Time'], axis=1)
+data = data.drop(['Time'], axis=50)
 gold_df = pd.DataFrame(data)
 st.line_chart(gold_df)
 
