@@ -239,5 +239,5 @@ data = data.fillna("")
 data
 index = []
 for i in range(0,48):
-  index.append(string(i))
+  index.append(i)
 st.write(index)
