@@ -25,9 +25,7 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
-#st.dataframe(data)
-line_fig = px.line(data, x='Minutes', y='Gold')
-st.plotly_chart(line_fig)
+st.dataframe(data)
 
 # install these
 
