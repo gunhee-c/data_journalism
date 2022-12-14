@@ -240,5 +240,4 @@ data
 index = []
 for i in range(0,48):
   index.append(i+1)
-st.write(index)
-data(row=1).value
+index
