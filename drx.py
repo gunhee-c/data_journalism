@@ -240,6 +240,9 @@ tes_1 = [0,-5,-95,-238,-9,-52,-98,-115,363,172,-128,1446,3168,3166,4001,3941,415
 gam_1 = [0,0,943,1338,1538,1548,797,1024,1088,1326,1423,2451,2672,3130,3274,3548,4657,5045,5222,5086,5582,5388,6920,7930,9186,"","","","","","","","","","","","","","","","","","","","","","",""]
 rge_2 = [0,-5,132,-191,119,245,236,103,474,2273,2558,2469,3078,3060,3507,4861,4661,5327,5447,6413,6820,6526,6549,7163,7184,9148,9010,9837,10250,12869,15033,16129,"","","","","","","","","","","","","","","",""]															
 gam_2 = [0,0,-58,89,-704,-226,-66,-195,1116,1368,465,465,1519,844,1880,1976,2402,2464,3470,4252,3643,6099,7121,8314,8304,9019,8640,8509,9328,10730,11448,13209,16293,"","","","","","","","","","","","","","",""]													
+tes_2 = [0,0,80,75,30,209,157,209,292,598,914,1390,1028,901,973,1826,1114,1741,2556,2600,1740,1480,1622,92,-1243,-1218,-1744,-2820,-2509,-2480,-2688,-2931,-2732,-5467,-10050,-10102,"","","","","","","","","","","",""]
+rge_tie = [0,20,12,348,359,-569,-484,-338,-36,381,-503,-56,401,559,1099,2145,2450,3011,3066,4310,4601,5786,5768,7664,7870,10264,"","","","","","","","","","","","","","","","","","","","","",""]																					
+edg_1 = [0,15,110,169,158,-116,45,156,405,-227,38,264,-83,-50,363,109,626,1205,2099,1759,1493,1737,771,771,1712,1434,1347,1409,1160,-781,-2912,-3464,-3579,-2541,-2848,-2066,-2066,"","","","","","","","","","",""]
 
 
 t1_2 = [0,0,54,-30,128,197,230,207,236,533,176,-2141,-3032,-2053,-3079,-2626,-1843,-1855,-796,-984,-865,-63,461,418,286,521,139,-27,-56,242,-224,-944,-617,-1033,-708,2898,3871,3476,2247,912,-372,-624,-1028,-1893,-1612,-2440,631,931]
@@ -250,9 +253,9 @@ df_tes_1 = pd.DataFrame({'vs TES Game 1 (W)': tes_1}, index=index)
 df_gam_1 = pd.DataFrame({'vs GAM Game 1 (W)': gam_1}, index=index)
 df_rge_2 = pd.DataFrame({'vs RGE Game 2 (W)': rge_2}, index=index)
 df_gam_2 = pd.DataFrame({'vs GAM Game 2 (W)': gam_2}, index=index)
-#df_tes_2 = pd.DataFrame({'vs TES Game 2 (L)': tes_2}, index=index)
-#df_rge_tie = pd.DataFrame({'vs RGE Tiebreaker (W)': rge_tie}, index=index)
-#df_edg_1 = pd.DataFrame({'vs EDG Game 1 (L)': edg_1}, index=index)
+df_tes_2 = pd.DataFrame({'vs TES Game 2 (L)': tes_2}, index=index)
+df_rge_tie = pd.DataFrame({'vs RGE Tiebreaker (W)': rge_tie}, index=index)
+df_edg_1 = pd.DataFrame({'vs EDG Game 1 (L)': edg_1}, index=index)
 #df_edg_2 = pd.DataFrame({'vs EDG Game 2 (L)': edg_2}, index=index)
 #df_edg_3 = pd.DataFrame({'vs EDG Game 3 (W)': edg_3}, index=index)
 #df_edg_4 = pd.DataFrame({'vs EDG Game 4 (W)': edg_4}, index=index)
@@ -272,9 +275,9 @@ fig_tes_1 = px.line(df_tes_1)
 fig_gam_1 = px.line(df_gam_1)
 fig_rge_2 = px.line(df_rge_2)
 fig_gam_2 = px.line(df_gam_2)
-#fig_tes_2 = px.line(df_tes_2)
-#fig_rge_tie = px.line(df_rge_tie)
-#fig_edg_1 = px.line(df_edg_1)
+fig_tes_2 = px.line(df_tes_2)
+fig_rge_tie = px.line(df_rge_tie)
+fig_edg_1 = px.line(df_edg_1)
 #fig_edg_2 = px.line(df_edg_2)
 #fig_edg_3 = px.line(df_edg_3)
 #fig_edg_4 = px.line(df_edg_4)
@@ -294,9 +297,9 @@ st.plotly_chart(fig_tes_1)
 st.plotly_chart(fig_gam_1)
 st.plotly_chart(fig_rge_2)
 st.plotly_chart(fig_gam_2)
-#st.plotly_chart(fig_tes_2)
-#st.plotly_chart(fig_rge_tie)
-#st.plotly_chart(fig_edg_1)
+st.plotly_chart(fig_tes_2)
+st.plotly_chart(fig_rge_tie)
+st.plotly_chart(fig_edg_1)
 #st.plotly_chart(fig_edg_2)
 #st.plotly_chart(fig_edg_3)
 #st.plotly_chart(fig_edg_4)
