@@ -48,6 +48,7 @@ st.write("")
 st.write("")
 st.write("")
 st.subheader("2. 경기 시간과 골드 변동 그래프를 통해 확인된 DRX의 끈질김")
+st.write("여기")
 
 # install these
 
