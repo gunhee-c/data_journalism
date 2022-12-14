@@ -39,7 +39,7 @@ st.image("https://i.ibb.co/LdFZFgb/DMGbalance.png")
 st.write("실제로 DMG%를 비교하면 강력한 우승후보였지만 예상보다 일찍 떨어진 TES와 JDG의 경우보다 우승과 준우승을 나눈 DRX와 T1의 밸런스가 대회의 평균과 더 근접한다")
 st.write("팀이 얼마나 많은 어시스트를 나누었는지 알 수 있는 Sum of Kill Participation")
 st.write("각 라인의 밸런스를 가늠할 수 있는 DMG%, GOLD%, KP%의 각 라인별 대회 내 평균을 구한 뒤 평균과의 오차의 제곱을 합한 값을 구하였다.")
-st.write("KP%의 경우 총합이 나머지와 같이 100%가 되도록 추가로 조정하였다.")ㄴ
+st.write("KP%의 경우 총합이 나머지와 같이 100%가 되도록 추가로 조정하였다.")
 st.write("")
 st.write("위 데이터들은 승패의 비율과 관련이 적기에, 최상위부터 최하위까지 팀 성향의 공정한 비교를 진행할 수 있을 것이다.")
          
