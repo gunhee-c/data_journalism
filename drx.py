@@ -25,4 +25,5 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(["Time"], axis=1)
-st.dataframe(data)
+DRX1 = data[data.columns[0]]
+st.dataframe(DRX1)
