@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
 
+pip install matplotlib
+
 st.title("The Rise of DRX")
 st.write("2018-11694 언론정보학과 허현준")
 
