@@ -26,4 +26,5 @@ data = data.fillna("")
 data.index = data.Time
 data = data.drop(["Time"], axis=1)
 DRX1 = data[data.columns[0]]
-st.line_chart(DRX1)
+#st.line_chart(DRX1)
+st.dataframe(DRX1)
