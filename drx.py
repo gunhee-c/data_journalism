@@ -21,11 +21,16 @@ st.write("")
 st.write("먼저,")
 
 st.subheader("골드")
-data = pd.read_excel("Rogue.xlsx")
-data = data.fillna("")
-gold_data = data.transpose()
-st.dataframe(gold_data)
-st.line_chart(gold_data)
+RGE1 = [0,0,-24,-53,-7,-448,-540,337,-366,-205,150,289,408,15,-20,16,-257,-385,-1027,-1032,-1411,-1373,-2079,-2193,-1922,-1687,-1009,-1200,-2277,-3715,-5561,-4943,-4837,-4941,-4964,-5139,-9363,-9414]
+index = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48']
+df = pd.DataFrame({'vs RGE Game 1': RGE1}, index = index)
+df
+
+#data = pd.read_excel("Rogue.xlsx")
+#data = data.fillna("")
+#gold_data = data.transpose()
+#st.dataframe(gold_data)
+#st.line_chart(gold_data)
 #gold_data.rename(columns=gold_data.iloc[0], inplace=True)
 #gold_data = gold_data.drop(gold_data.index[0])
 #st.line_chart(gold_data)
