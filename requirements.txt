@@ -1,2 +1,2 @@
 ﻿matplotlib==3.6.2
- plotly @ file:///C:/ci/plotly_1658142442431/work
+ plotly
