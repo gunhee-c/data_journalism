@@ -19,11 +19,6 @@ st.write("본 보고서에서는 LOL e스포츠 대회 통계 사이트의 데�
 st.write("")
 st.write("")
 st.write("")
-st.write("먼저,")
-
-st.subheader("골드")
-#data = pd.read_excel("Gold.xlsx")
-#data = data.fillna("")
 
 # install these
 
@@ -237,3 +232,8 @@ st.write(alt.Chart(data).mark_bar().encode(
 )
 )
 ###
+
+st.subheader("골드")
+data = pd.read_excel("Gold.xlsx")
+data = data.fillna("")
+data
