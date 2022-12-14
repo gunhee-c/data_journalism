@@ -31,9 +31,9 @@ st.dataframe(data)
 
 from bs4 import BeautifulSoup
 from IPython.utils.path import target_update
-from urllib.request import urlopen 
+from urllib3.request import urlopen 
 
-from urllib.error import URLError, HTTPError
+from urllib3.error import URLError, HTTPError
 
 
 #Data Analysis Main Function
