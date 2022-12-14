@@ -21,6 +21,16 @@ st.write("")
 st.write("")
 st.write("")
 
+st.subheader("1. 챔피언 픽 ")
+#픽밴값을 구하는 과정
+st.image("https://i.ibb.co/k9jJF6V/image.png")
+#SUM & VAR
+st.image("https://i.ibb.co/LdFZFgb/DMGbalance.png")
+#데이터프레임 형성
+st.image("https://i.ibb.co/34TF6TF/datatable.png")
+#result
+st.image("https://i.ibb.co/k4CbXfJ/All-Datas.png")
+
 # install these
 
 from bs4 import BeautifulSoup
@@ -323,16 +333,5 @@ st.plotly_chart(fig_t1_2)
 st.plotly_chart(fig_t1_3)
 st.plotly_chart(fig_t1_4)
 st.plotly_chart(fig_t1_5)
-
-
-
-#픽밴값을 구하는 과정
-st.image("https://i.ibb.co/k9jJF6V/image.png")
-#SUM & VAR
-st.image("https://i.ibb.co/LdFZFgb/DMGbalance.png")
-#데이터프레임 형성
-st.image("https://i.ibb.co/34TF6TF/datatable.png")
-#result
-st.image("https://i.ibb.co/k4CbXfJ/All-Datas.png")
 
 
