@@ -55,7 +55,13 @@ st.image("https://i.ibb.co/k4CbXfJ/All-Datas.png")
 st.write("그 결과 픽밴, 킬관여율의 평균오차, 킬관여 총합, 데미지의 평균오차 순으로 연관성이 있는것으로 드러났고, 골드수급의 평균오차의 경우 연관성이 희미하다고 드러났다.")
 st.write("이제 DRX의 픽밴 랭킹값과 킬관여 총합값의 변동을 LCK의 다른 세 팀 (T1, DRX, GENG)과 함께 비교해보자.")
 st.image("https://i.ibb.co/2y4Bz7q/Comparison.png")
-st.write("~~한 양상을 보였다.")
+
+st.write("DRX의 픽밴은 준수한 정도의 경향을 보여주다 롤드컵때 한국 팀 중 최고의 메타해석을 보여주었다.")
+st.write("Spring의 경우 메타픽 제이스 리신이 선수들과 잘 맞는 등 메타가 T1의 흐름에 맞아 떨어졌고,")
+st.write("Summer의 경우 최고의 OP듀오 제리 유미를 가장 잘 쓰는 팀이 Gen G였으며")
+st.write("롤드컵의 경우 아트록스, 아지르 등의 메타 챔프를 가장 잘 쓰는 팀이 DRX였다.")
+
+
 st.write("이를 통해, 팀의 메타 분석 능력도 중요하지만 선수들과 메타 간의 궁합도 중요하다는 사실을 도출할 수 있었다.")
 st.write("이런 가운데 DRX가 sum(KP) 랭크가 급격히 낮아진 데는 해당 대회에서 선수들의 기량이 만개함에 따라 솔로킬과 같은 변수 창출 능력이 늘어났기 때문이라는 것으로 해석될 여지가 있다.")
 st.write("최상위권은 아니었던 픽밴 랭킹, 팀플레이 위주로 인해 낮았던 KP 랭킹 등의 데이터를 고려했을 때, 월드 챔피언십에서 DRX가 우승할 것이라고 예측할 사람은 없었을 것이다. 그렇기 때문에 그들의 '업셋'이 더 짜릿하게 느껴지는 것이 아닐까.")
@@ -63,7 +69,10 @@ st.write("")
 st.write("")
 st.write("")
 st.subheader("2. 경기 시간과 골드 변동 그래프를 통해 확인된 DRX의 끈질김")
-st.write("여기")
+st.write("2018년부터 2022년까지 우승팀들의 롤드컵 총 경기시간을 구해 그래프로 비교하였다.")
+st.write("DRX는 21경기를 플레이하여 전년도 EDG와 최다 경기수 타이를 기록하였으며, 2018년 이후로 최장의 평균 경기시간을 보여주었다.")
+st.write("여기에 사실상 DRX의 여정, 데프트의 라스트 댄스가 조별 토너먼트 전 플레이인 스테이지, 더 나아가 한국의 선발전부터 시작했음을 고려하면")
+st.write("그들의 우승까지의 플레이타임이 역대 다른 기록들과 비교했을때 압도적으로 길었음을 볼 수 있다.")
 
 # install these
 
@@ -231,17 +240,6 @@ def sortedpair(lst1, lst2):
   lst2sort.sort()
   return [Z,lst2sort]
 
-#worlds2022 = data_master("https://gol.gg/tournament/tournament-stats/World%20Championship%202022/")
-#st.subheader("list of teams")
-#st.write(worlds2022[0])
-#st.subheader("their pick-ban score")
-#st.write(worlds2022[1])
-#st.subheader("their kill participation distribution")
-#st.write(worlds2022[2])
-#st.subheader("their DMG distribution")
-#st.write(worlds2022[3])
-#st.subheader("their Gold distribution")
-#st.write(worlds2022[4])
 
 
 
