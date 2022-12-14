@@ -23,8 +23,6 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-data.index = data.Games
-data = data.drop(['Games'], axis=1)
-
-#df1 = pd.DataFrame({'vs RGE': RGE1, 'vs TES': TES1, 'vs GAM': GAM1, 'vs RGE': RGE2, 'vs GAM': GAM2, 'vs TES':TES2, '}, index = data.columns)
-#st.dataframe(df1)
+st.dataframe(data)
+#data.index = data.Games
+#data = data.drop(['Games'], axis=1)
