@@ -25,7 +25,8 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
-st.dataframe(data)
+#st.dataframe(data)
+st.line_chart(data)
 
 # install these
 
