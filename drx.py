@@ -30,6 +30,9 @@ gold_columns = []
 for i in range(len(data.columns)):
   gold_columns.append(data.columns[i])
 st.write(gold_columns)
+st.write(data[data.columns[0]])
+#for i in range():
+  #gold_index[i] = data[
 #option = st.selectbox('Games', gold_columns)
 #gold_data = data.loc[(gold_columns == option)]
 #gold_index = gold_data.index.tolist()
