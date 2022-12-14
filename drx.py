@@ -38,17 +38,22 @@ st.write("한 두명의 선수에게 부담이 집중되는것 보다 모두가 
 st.image("https://i.ibb.co/LdFZFgb/DMGbalance.png")
 st.write("실제로 DMG%를 비교하면 강력한 우승후보였지만 예상보다 일찍 떨어진 TES와 JDG의 경우보다 우승과 준우승을 나눈 DRX와 T1의 밸런스가 대회의 평균과 더 근접한다")
 st.write("팀이 얼마나 많은 어시스트를 나누었는지 알 수 있는 Sum of Kill Participation")
-st.write("각 라인의 밸런스를 가늠할 수 있는 DMG%, GOLD%, KP%의 각 라인별 대회 내 평균을 구한 뒤 평균과의 오차의 제곱을 합한 값을 구하였다.")
+st.write("각 라인의 밸런스를 가늠할 수 있는 DMG%, GOLD%, KP%의 각 라인별 대회 내 평균을 구한 뒤 평균과의 오차의 제곱을 합한 값을 구하였다."
+st.write("이를 앞으로 평균오차라고 부르기로 한다.")
 st.write("KP%의 경우 총합이 나머지와 같이 100%가 되도록 추가로 조정하였다.")
 st.write("")
-st.write("위 데이터들은 승패의 비율과 관련이 적기에, 최상위부터 최하위까지 팀 성향의 공정한 비교를 진행할 수 있을 것이다.")
+st.write("승패의 비율과 관련이 적고, 최상위부터 최하위까지 팀 성향의 공정한 비교를 진행할 수 있는 데이터들로 선별하였다.")
          
-st.write("여기도 건희 님이 어떤 방식으로 계산했고, 어떤 결과가 도출되었는지 작성해 주세요.")
+st.write("픽밴과 각종 팀 단위 밸런스 수치들을 기록하고, 이를 순위로 나타낼 수 있게 하였다.")
+st.write("각 대회마다 모든 팀의 정보에 대해 접근할 수 있도록 한 뒤,")
+st.write("3강으로 분류되는 한국,중국,유럽의 Spring과 Summer 데이터와 5년간의 롤드컵 데이터들을 크롤링하여 데이터프레임의 리스트를 만들었다.")
 #데이터프레임 형성
 st.image("https://i.ibb.co/34TF6TF/datatable.png")
-#result
+#results
+st.write("모든 대회의 데이터들을 합친 뒤, 각 요인에 대한 Least Square Method를 통한 일차함수 근사를 통해 trend graph를 만들었다")
 st.image("https://i.ibb.co/k4CbXfJ/All-Datas.png")
-
+st.write("그 결과 픽밴, 킬관여율의 평균오차, 킬관여 총합, 데미지의 평균오차 순으로 연관성이 있는것으로 드러났고, 골드수급의 평균오차의 경우 연관성이 희미하다고 드러났다.")
+st.write("이제 DRX의 픽밴 랭킹값과 킬관여 총합값의 변동을 LCK의 다른 세 팀 (T1, DRX, GENG)와 함께 비교해보자.")
 st.write("")
 st.write("")
 st.write("")
