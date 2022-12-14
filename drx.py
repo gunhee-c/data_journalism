@@ -123,9 +123,6 @@ def team_pb_grade(tournament, team):
     evaluator += team[key] * math.sqrt(tournament[key])
   return evaluator/counter
 
-print(team_pb_grade(worlds, drx))
-
-
 #Receive pick-ban data of a tournament in a form of dictionary
 #score = sum of picks and bans from all lines
 def pb_datamaker(url):
