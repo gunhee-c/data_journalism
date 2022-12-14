@@ -27,7 +27,6 @@ data.index = data.Time
 data = data.drop(["Time"], axis=1)
 
 # install these
-!pip install bs4
 
 from bs4 import BeautifulSoup
 from IPython.utils.path import target_update
