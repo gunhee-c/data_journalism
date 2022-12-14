@@ -23,15 +23,13 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-data.index = data.Time
-data = data.drop(['Time'], axis=1)
 st.dataframe(data)
-gold_columns = []
-for i in range(len(data.columns)):
-  gold_columns.append(data.columns[i])
-gold_index = data[data.columns[0]]
-st.write(gold_columns)
-st.write(gold_index.index[5])
+#gold_columns = []
+#for i in range(len(data.columns)):
+  #gold_columns.append(data.columns[i])
+#gold_index = data[data.columns[0]]
+#st.write(gold_columns)
+#st.write(gold_index.index[5])
 #st.line_chart(gold_index)
 #for i in range():
   #gold_index[i] = data[
