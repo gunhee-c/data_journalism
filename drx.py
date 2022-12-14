@@ -22,4 +22,82 @@ st.write("먼저,")
 
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
-st.line_chart(data)
+
+#
+# ans[0] = team url links, ans[1] = team names
+def teams_finder(url):
+  addme = "https://gol.gg"
+  ans = [[],[]]
+
+  parser = 'html.parser'  # or 'lxml' (preferred) or 'html5lib', if installed
+  resp = urllib.request.urlopen(url)
+  soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'))
+
+  for link in soup.find_all('a', href=True):
+    if 'team-stats' in link['href']:
+      ans[0].append(addme + link['href'][2:])
+      ans[1].append(link.get_text())
+      print(addme + link['href'][2:])
+      print(link.get_text())
+
+#make dictionary of pick-ban of certain tournament
+def pb_datamaker(url):
+  url_open = urlopen(url)
+  soup = BeautifulSoup(url_open, "html.parser")
+  pb = soup.find_all('td')
+  pickbans = {}
+  pbs = [pb[5], pb[7], pb[9], pb[11], pb[13], pb[15]] 
+  for i in range(len(pbs)):
+    if i == 0:
+      nums = re.findall("\r\n.*?</span>", str(pbs[i]))
+    else:
+      nums = re.findall("</div>.*?</div>", str(pbs[i]))
+    champs = re.findall("title=.*? stats", str(pbs[i]))
+    for j in range(len(champs)):
+      if i == 0:
+        numdata = int(nums[j][9:-7])
+      else: 
+        numdata = int(nums[j][6:-6])
+      champdata = champs[j][7:-6]
+      if champdata in pickbans:
+        pickbans[champdata] += numdata
+      else:
+        pickbans.update({champdata : numdata})
+  return pickbans
+
+
+#get team's pick record
+def team_picks(url):
+  team_url = urlopen(url)
+  soup = BeautifulSoup(team_url, "html.parser")
+  parseme = soup.find_all('span', class_="text-center")
+  dictout = {}
+  for i in range(len(parseme)):
+    num = re.findall("</a><br/>\r\n.*?</span>", str(parseme[i]))
+    champ = re.findall("title=.*? stats", str(parseme[i]))
+    numdata = int(num[0][18:-7])
+    champdata = champ[0][7:-6]
+    if champdata[0] in dictout:
+      dictout[champdata] += numdata
+    else:
+      dictout.update({champdata : numdata})
+
+  return dictout
+      
+#get team's pick ban grade
+def team_pb_grade(url_tournament, url_team):
+  pb_data = pb_datamaker(url_tournament)
+  pb_team = team_picks(url_team)
+  evaluator = 0;
+  counter  = 0;
+  for key in pb_team:
+    counter += pb_team[key]
+    evaluator += pb_team[key] * math.sqrt(pb_data[key])
+  return evaluator/counter
+
+#
+
+#
+def
+
+#
