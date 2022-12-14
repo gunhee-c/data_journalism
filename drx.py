@@ -20,12 +20,6 @@ st.write("")
 st.write("")
 st.write("먼저,")
 
-st.subheader("골드")
-data = pd.read_excel("Gold.xlsx")
-data = data.fillna("")
-data.index = data.Time
-data = data.drop(["Time"], axis=1)
-
 # install these
 
 from bs4 import BeautifulSoup
@@ -169,3 +163,10 @@ def team_picks(url):
       dictout.update({champdata : numdata})
 
   return dictout
+
+st.subheader("골드")
+data = pd.read_excel("Gold.xlsx")
+data = data.fillna("")
+data.index = data.Time
+data = data.drop(["Time"], axis=1)
+st.dataframe(data)
