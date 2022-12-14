@@ -25,13 +25,7 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 data.index = data.Time
 data = data.drop(['Time'], axis=1)
-#st.dataframe(data)
-
-for i in len(data.columns):
-  i = 0
-  gold_data = data[data.columns[i]]
-  st.dataframe(gold_data)
-  i += 1
+st.dataframe(data)
 
 # install these
 
