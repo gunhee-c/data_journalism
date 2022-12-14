@@ -23,7 +23,8 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-st.dataframe(data)
+gold_data = data.transpose()
+st.dataframe(gold_data)
 #gold_columns = []
 #for i in range(len(data.columns)):
   #gold_columns.append(data.columns[i])
