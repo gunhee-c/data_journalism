@@ -323,3 +323,5 @@ st.plotly_chart(fig_t1_2)
 st.plotly_chart(fig_t1_3)
 st.plotly_chart(fig_t1_4)
 st.plotly_chart(fig_t1_5)
+
+st.image("https://i.ibb.co/k4CbXfJ/All-Datas.png")
