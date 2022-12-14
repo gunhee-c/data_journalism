@@ -23,10 +23,16 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-gold_data = data.transpose()
-gold_data.rename(columns=gold_data.iloc[0], inplace=True)
-gold_data = gold_data.drop(gold_data.index[0])
-st.dataframe(gold_data)
+#st.dataframe(gold_data)
+
+#import pandas_datareader.data as web
+#start = 1
+#end = 48
+#gold_df = web.DataReader('vs RGE Game 1',start,end).reset_index()
+#plt figure(figsize=(20,5))
+#plt.plot(gold_df
+#plt.legend()
+#plt.show()
 
 # install these
 
