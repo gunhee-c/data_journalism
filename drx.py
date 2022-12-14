@@ -32,6 +32,7 @@ for i in range(len(data.columns)):
 gold_index = data[data.columns[0]]
 st.write(gold_columns)
 st.write(gold_index)
+st.line_chart(gold_index)
 #for i in range():
   #gold_index[i] = data[
 #option = st.selectbox('Games', gold_columns)
