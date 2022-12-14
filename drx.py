@@ -25,6 +25,7 @@ data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
 gold_data = data.transpose()
 st.dataframe(gold_data)
+st.line_chart(gold_data)
 #gold_columns = []
 #for i in range(len(data.columns)):
   #gold_columns.append(data.columns[i])
