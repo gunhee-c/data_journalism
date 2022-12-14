@@ -29,6 +29,9 @@ st.write("이에 따라 본 연구에서는 2022년 월드 챔피언십에서의
 
 #픽밴값을 구하는 과정
 st.image("https://i.ibb.co/k9jJF6V/image.png")
+
+st.write("또한")
+
 #SUM & VAR
 st.image("https://i.ibb.co/LdFZFgb/DMGbalance.png")
 #데이터프레임 형성
