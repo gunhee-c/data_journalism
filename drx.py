@@ -23,12 +23,7 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-#st.dataframe(data)
-
-plt.figure(figsize=(20,5))
-plt.plot(data['Time'], data['vs RGE Game 1'], label = 'vs RGE Game 1')
-plt.legend()
-plt.show()
+st.dataframe(data)
 
 # install these
 
