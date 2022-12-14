@@ -23,11 +23,12 @@ st.write("먼저,")
 st.subheader("골드")
 data = pd.read_excel("Gold.xlsx")
 data = data.fillna("")
-gold_data = data.transpose()
-st.dataframe(gold_data)
-gold_data.rename(columns=gold_data.iloc[0], inplace=True)
-gold_data = gold_data.drop(gold_data.index[0])
-st.line_chart(gold_data)
+chart_data = pd.DataFrame(
+#gold_data = data.transpose()
+#st.dataframe(gold_data)
+#gold_data.rename(columns=gold_data.iloc[0], inplace=True)
+#gold_data = gold_data.drop(gold_data.index[0])
+#st.line_chart(gold_data)
 #gold_columns = []
 #for i in range(len(data.columns)):
   #gold_columns.append(data.columns[i])
